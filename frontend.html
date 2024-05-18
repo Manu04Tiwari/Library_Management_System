@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+ <link rel="stylesheet" type="text/css" href="styles.css"> </link>
+    
+</head>
+<body>
+    <h1>Library Management System</h1>
+
+    <form id="bookForm">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="author">Author:</label><br>
+        <input type="text" id="author" name="author"><br>
+        <input type="submit" value="Add Book">
+    </form>
+
+    <table id="booksTable">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+    </table>
+
+    <script>
+        document.getElementById('bookForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var title = document.getElementById('title').value;
+            var author = document.getElementById('author').value;
+
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + title + '</td><td>' + author + '</td>';
+
+            document.getElementById('booksTable').appendChild(row);
+
+            document.getElementById('title').value = '';
+            document.getElementById('author').value = '';
+        });
+    </script>
+</body>
+</html>
